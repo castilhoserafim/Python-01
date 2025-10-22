@@ -1,17 +1,27 @@
-notas = []
+import os
 
-for x in range(5):
-    codigo_aluno = input("RM: ")
-    nota = float(input("Nota: "))
-    resultado = [codigo_aluno, nota]
-    notas.append(resultado)
+mensagens = []
 
-    print( "quantidade de notas", len(notas) )
+nome = input("Nome: ")
 
-for n in notas:
-    codigo_aluno = n[0]
-    nota = n[1]
-    if nota >= 6:
-        print("O RM", codigo_aluno, "tirou a nota", nota)
-    else:
-        print("O RM", codigo_aluno, "reprovou com:", nota)
+while True:
+
+    # Limpando Terminal
+    os.system('cls')
+
+    if len(mensagens) > 0:
+        for m in mensagens:
+            print(m['nome'], "-", m['texto'])
+
+    print("_________________")
+
+    # obtendo texto
+    texto = input("mensagem: ")
+    if texto == "fim":
+        break
+
+    # adicionando mensagem na lista
+    mensagens.append({
+        "nome": nome,
+        "texto": texto
+    })
